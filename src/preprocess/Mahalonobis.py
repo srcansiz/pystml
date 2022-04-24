@@ -1,9 +1,12 @@
+import math
 import numpy as np
+import matplotlib.pyplot as plt
+
+from typing import Union
 from scipy.stats import chi2
 from matplotlib import patches
-import matplotlib.pyplot as plt
 from itertools import combinations
-import math
+
 
 '''
 @center : If center is true it returns distance between each point and center
@@ -16,18 +19,23 @@ import math
 
 class Mahalanobis:
 
-    def __init__(self, data, center=True, points=None, rowvar=False, oq=0.95):
+    def __init__(self,
+                 data: Union[list, np.ndarray],
+                 center: bool = True,
+                 points: Union[list[float, float]] = None,
+                 row_var: bool = False,
+                 oq: float = 0.95):
 
         self.center = center
         self.points = points
         self.oq = oq
 
         if isinstance(data, list):
-            self.data = np.array(data) if rowvar == True else np.array(data).T
+            self.data = np.array(data) if row_var is True else np.array(data).T
         elif isinstance(data, np.ndarray):
-            self.data = data if rowvar == False else data.T
+            self.data = data if row_var is False else data.T
         elif data.__class__ and data.__class__.__name__ == 'DataFrame':
-            self.data = data if rowvar == False else data.to_numpy().T
+            self.data = data if row_var is False else data.to_numpy().T
         else:
             raise ValueError('Data should be list, DataFrame or np.array.')
 
