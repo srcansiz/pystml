@@ -1,5 +1,5 @@
 import math
-from pystml.stats.Mahalonobis import Mahalanobis
+from .mahalanobis import Mahalanobis
 
 
 # Reference : https://en.wikipedia.org/wiki/Euclidean_distance
