@@ -1,5 +1,4 @@
 import math
-from pystml.stats.distances import euclidean as euc
 
 # Loop
 def euclidean(int [:,:] points):
