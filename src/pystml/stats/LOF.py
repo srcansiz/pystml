@@ -1,5 +1,3 @@
-import math
-import pandas as pd
 import numpy as np
 
 class LOF:
@@ -15,7 +13,8 @@ class LOF:
         max_n: Number of maximum neighbours
         """
 
-        data.mean(axis=1)
+        for points in data:
+
 
 
 

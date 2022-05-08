@@ -12,7 +12,7 @@ from itertools import combinations
 @center : If center is true it returns distance between each point and center
 @point  : points is an array of two observation index. If points argument is presented
           center will be ignored
-@rowvar : True if arrays' row respresnt each varialbe in dataset.
+@rowvar : True if arrays' row represent each variable in dataset.
 @oq     : For outlier detection, cutoff quantile according to two tail chi-sqaure distribution
 '''
 
