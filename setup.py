@@ -13,12 +13,14 @@ else:
     USING_CYTHON = True
 
 ext = 'pyx' if USING_CYTHON else 'c'
-sources = glob('src/pystml/*.%s' % (ext,))
+sources = glob('src/pystml/stats/*.%s' % (ext,))
 extensions = [
     Extension(source.split('.')[0].replace(os.path.sep, '.'),
               sources=[source],
     )
 for source in sources]
+
+print(extensions)
 cmdclass = {'build_ext': build_ext} if USING_CYTHON else {}
 
 setup(ext_modules=extensions, cmdclass=cmdclass)

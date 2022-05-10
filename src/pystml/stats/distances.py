@@ -1,6 +1,6 @@
 import math
 from .mahalanobis import Mahalanobis
-
+from ._distances import euclidean as _euclidean
 
 # Reference : https://en.wikipedia.org/wiki/Euclidean_distance
 def euclidean(points):
@@ -14,14 +14,7 @@ def euclidean(points):
         raise ValueError(
             'Point coordinates does not matched, they should be matched for example: [[a,b,c],[x,z,y]]')
 
-    P1 = points[0]
-    P2 = points[1]
-    L = len(points[0])
-
-    # Find difference between each pairs and square with it self
-    diffs = [(P1[i] - P2[i]) ** 2 for i in range(L)]
-
-    return math.sqrt(sum(diffs))
+    return _euclidean(points)
 
 
 # Reference : https://en.wikipedia.org/wiki/Taxicab_geometry
